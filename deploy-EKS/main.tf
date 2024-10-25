@@ -1,11 +1,12 @@
 provider "aws" {
-  region = var.region
+  region = "eu-west-1"
 }
 
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "sn-platform-eks-${random_string.suffix.result}"
+  #cluster_name = "sn-platform-eks-${random_string.suffix.result}"
+  cluster_name = "sn-platform-eks-a-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {
@@ -67,6 +68,7 @@ module "eks" {
       desired_size = 3
     }
   }
+  create_cloudwatch_log_group                = false
 }
 
 data "aws_iam_policy" "ebs_csi_policy" {

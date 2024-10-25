@@ -1,2 +1,2 @@
-region = "ap-southeast-1"
-profile = "<your-aws-profile>"
+region = "eu-west-1"
+#profile = "snsupuser"
